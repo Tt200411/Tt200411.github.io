@@ -4,9 +4,60 @@
   weight = 10
 
 [[main]]
+  name = "Oscillator"
+  pageRef = "/oscillator/"
+  weight = 15
+
+[[main]]
+  name = "Deep Learning"
+  pageRef = "/deep-learning/"
+  weight = 20
+
+[[main]]
+  name = "Neural Network Fundamentals"
+  pageRef = "/deep-learning/neural-network-fundamentals/"
+  parent = "Deep Learning"
+  weight = 1
+
+[[main]]
+  name = "Convolutional Neural Networks"
+  pageRef = "/deep-learning/convolutional-neural-networks/"
+  parent = "Deep Learning"
+  weight = 2
+
+[[main]]
+  name = "Transformer Architecture"
+  pageRef = "/deep-learning/transformer-architecture/"
+  parent = "Deep Learning"
+  weight = 3
+
+[[main]]
+  name = "Optimization"
+  pageRef = "/optimization/"
+  weight = 30
+
+[[main]]
+  name = "Gradient Descent Methods"
+  pageRef = "/optimization/gradient-descent-methods/"
+  parent = "Optimization"
+  weight = 1
+
+[[main]]
+  name = "Convex Optimization"
+  pageRef = "/optimization/convex-optimization/"
+  parent = "Optimization"
+  weight = 2
+
+[[main]]
+  name = "Metaheuristic Algorithms"
+  pageRef = "/optimization/metaheuristic-algorithms/"
+  parent = "Optimization"
+  weight = 3
+
+[[main]]
   name = "Tags"
   pageRef = "/tags"
-  weight = 20
+  weight = 40
 
 [[social]]
   name = "LinkedIn"
@@ -17,7 +68,7 @@
 [[social]]
   name = "GitHub"
   pre = "fab fa-github"
-  url = "https://github.com/"
+  url = "https://github.com/Tt200411"
   weight = 20
 
 [[social]]
