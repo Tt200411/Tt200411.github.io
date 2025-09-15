@@ -9,6 +9,7 @@ content_blocks:
       content: |-
         Personal website showcasing CogniMatrix organization, projects, blog posts, and professional journey. Explore cutting-edge research in AI, optimization, and signal processing.
       width: 6
+      align: center
     background:
       color: primary
       subtle: true
@@ -28,6 +29,7 @@ content_blocks:
         icon: fas chevron-right
     orientation: horizontal
     justify: center
+    align: center
 
   # CogniMatrix Introduction Section
   - _bookshop_name: hero

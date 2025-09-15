@@ -165,3 +165,10 @@ $utilities: (
     )
   )
 );
+
+// Custom Hero Section Spacing
+.hero, 
+section.hero {
+    margin-top: 5rem !important;
+    padding-top: 2rem !important;
+}

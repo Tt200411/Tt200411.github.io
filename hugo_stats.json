@@ -183,6 +183,7 @@
       "justify-content-between",
       "justify-content-center",
       "justify-content-end",
+      "justify-content-md-center",
       "justify-content-md-start",
       "justify-content-start",
       "label",
