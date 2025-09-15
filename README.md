@@ -208,6 +208,189 @@ hugo server -D
 - 📝 草稿模式：显示 `draft: true` 的文章
 - 🚀 快速构建：增量编译，秒级响应
 
+## 📝 内容更新指南
+
+### 博客文章更新流程
+
+#### 1. 创建新博客文章
+```bash
+# 创建新文章
+hugo new blog/your-article-title.md
+
+# 或直接在 content/blog/ 目录创建 .md 文件
+```
+
+#### 2. 编写文章内容
+```markdown
+---
+title: "你的文章标题"
+description: "文章简短描述"
+date: 2025-09-15T10:00:00+08:00
+author: "Tt200411"
+tags: ["标签1", "标签2"]
+categories: ["分类"]
+draft: false  # 设为 true 时为草稿，不会发布
+featured: true  # 是否在首页显示
+---
+
+# 文章正文内容
+这里是你的 Markdown 内容...
+```
+
+#### 3. 本地预览和测试
+```bash
+# 启动本地服务器（包含草稿）
+hugo server -D
+
+# 访问 http://localhost:1313 预览效果
+```
+
+#### 4. 发布到网站
+```bash
+# 提交更改
+git add content/blog/your-article-title.md
+git commit -m "新增博客文章: 你的文章标题"
+git push origin main
+
+# GitHub Actions 会自动部署，约2-3分钟后生效
+```
+
+### 项目更新流程
+
+#### 1. 创建新项目页面
+```bash
+# 在 content/projects/ 目录创建新项目文件
+hugo new projects/your-project-name.md
+```
+
+#### 2. 项目页面模板
+```markdown
+---
+title: "项目名称"
+description: "项目简短介绍"
+date: 2025-09-15
+tags: ["技术栈1", "技术栈2"]
+categories: ["项目类型"]
+github: "https://github.com/username/repo"  # 可选
+demo: "https://demo-url.com"  # 可选
+image: "/img/project-preview.jpg"  # 项目预览图
+draft: false
+weight: 10  # 数字越小排序越靠前
+---
+
+## 项目介绍
+详细描述你的项目...
+
+## 技术栈
+- 技术1
+- 技术2
+
+## 功能特性
+- 功能1
+- 功能2
+
+## 截图展示
+![项目截图](/img/project-screenshot.jpg)
+```
+
+#### 3. 更新项目列表导航
+编辑 `config/_default/menus/menus.en.toml`:
+```toml
+[[main]]
+  name = "新项目名称"
+  pageRef = "/projects/your-project-name/"
+  parent = "Projects"
+  weight = 30
+```
+
+#### 4. 提交和发布
+```bash
+git add content/projects/your-project-name.md
+git add config/_default/menus/menus.en.toml
+git commit -m "新增项目: 项目名称"
+git push origin main
+```
+
+### 样式和排版调整
+
+#### 1. 全局样式调整
+编辑 `assets/scss/common/_styles.scss`:
+```scss
+// 自定义样式示例
+.custom-class {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+// Hero 区域样式（已配置）
+.hero, 
+section.hero {
+    margin-top: 5rem !important;
+    padding-top: 2rem !important;
+}
+```
+
+#### 2. 主题色彩调整
+编辑 `config/_default/params.toml`:
+```toml
+[style]
+    primary = "#4a90e2"      # 主色调
+    secondary = "#6c757d"    # 次要色
+    light = "#f0f6ff"        # 浅色背景
+    dark = "#212529"         # 深色
+```
+
+#### 3. 组件级样式调整
+如需调整特定页面组件样式，可以：
+- 修改对应的 `.scss` 文件
+- 在 `assets/scss/components/` 目录找到相应组件样式
+- 或在 `_styles.scss` 中添加覆盖样式
+
+#### 4. 字体和布局调整
+```toml
+# config/_default/params.toml
+[main.padding]
+    x = 4  # 水平内边距
+    y = 4  # 垂直内边距
+
+[navigation]
+    logo-height = 70  # Logo高度
+    logo-width = 70   # Logo宽度
+```
+
+### 常用操作快速参考
+
+#### 上传图片资源
+```bash
+# 将图片放到以下目录：
+static/img/           # 静态图片
+assets/img/           # 需要处理的图片
+```
+
+#### 更新网站配置
+```bash
+# 主要配置文件：
+config/_default/hugo.toml        # 网站基本信息
+config/_default/params.toml      # 主题参数
+config/_default/menus/menus.en.toml  # 导航菜单
+```
+
+#### 检查网站状态
+```bash
+# 本地构建测试
+hugo --gc --minify
+
+# 检查链接有效性
+hugo server --printI18nWarnings --printMemoryUsage --printPathWarnings
+```
+
+**重要提醒**: 
+- 每次修改后都要通过 `git push` 提交到 GitHub
+- GitHub Actions 会自动构建和部署，通常需要2-3分钟
+- 可以在 GitHub 的 Actions 标签查看部署状态
+- 如有构建错误，检查 Actions 日志进行调试
+
 ## ✏️ 内容管理
 
 ### 创建新文章
