@@ -87,10 +87,11 @@
 # toml-docs-start navigation
 [navigation]
     anchor = true
-    logo = "/img/logo_icon.svg"
+    logo = "/img/logo1.jpg"
     logo-mode = false
     logo-align = "center"
-    logo-height = 30
+    logo-height = 70
+    logo-width = 70
     color = "body"
     fixed = true
     overlay = false

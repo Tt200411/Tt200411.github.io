@@ -1,154 +1,301 @@
-# Hugo Theme Hinode
+# Tt200411's Personal Website
 
-<!-- markdownlint-disable MD033 -->
-<!-- Tagline -->
 <p align="center">
-    <b>A clean documentation and blog theme for your Hugo site based on Bootstrap 5</b>
+    <b>个人技术博客网站 - 基于 Hugo Hinode 主题</b>
     <br />
+    <em>涵盖深度学习、优化算法、振荡器理论等技术内容</em>
 </p>
 
-<!-- Badges -->
 <p align="center">
-    <a href="https://gohugo.io">
-        <img src="https://img.shields.io/badge/generator-hugo-brightgreen" alt="Hugo website">
+    <a href="https://tt200411.github.io">
+        <img src="https://img.shields.io/badge/website-tt200411.github.io-blue" alt="Website">
     </a>
-    <a href="https://gethinode.com">
+    <a href="https://tttang2004.cn">
+        <img src="https://img.shields.io/badge/domain-tttang2004.cn-green" alt="Custom Domain">
+    </a>
+    <a href="https://gohugo.io">
+        <img src="https://img.shields.io/badge/generator-hugo-brightgreen" alt="Hugo">
+    </a>
+    <a href="https://github.com/gethinode/hinode">
         <img src="https://img.shields.io/badge/theme-hinode-blue" alt="Hinode theme">
     </a>
-    <a href="https://app.netlify.com/sites/gethinode-demo/deploys">
-        <img src="https://img.shields.io/netlify/0ad42e3e-fdfa-4d37-8e26-58badd429a67"  alt="Netlify Status">
-    </a>
-    <a href="https://stats.uptimerobot.com/xyGVYhLJmV">
-        <img src="https://img.shields.io/uptimerobot/status/m791334689-73d9dfc82030f4f955b2d6bb" alt="UptimeRobot Status">
-    </a>
-    <a href="https://github.com/gethinode/hinode/commits/main">
-        <img src="https://img.shields.io/github/last-commit/gethinode/hinode.svg" alt="Last commit">
-    </a>
-    <a href="https://github.com/gethinode/hinode/issues">
-        <img src="https://img.shields.io/github/issues/gethinode/hinode.svg" alt="Issues">
-    </a>
-    <a href="https://github.com/gethinode/hinode/pulls">
-        <img src="https://img.shields.io/github/issues-pr-raw/gethinode/hinode.svg" alt="Pulls">
-    </a>
-    <a href="https://github.com/gethinode/hinode/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/gethinode/hinode" alt="License">
-    </a>
 </p>
 
-<!-- Table of Contents -->
-<p align="center">
-  <a href="#about">About</a> •
-  <a href="#prerequisites">Prerequisites</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#configuration">Configuration</a> •
-  <a href="#contributing">Contributing</a> •
-  <a href="#donate">Donate</a> •
-  <a href="#license">License</a>
-</p>
-<!-- markdownlint-enable MD033 -->
+## 📖 目录
 
-## About
+- [项目概述](#项目概述)
+- [文件结构说明](#文件结构说明)
+- [部署流程](#部署流程)
+- [GitHub Actions](#github-actions)
+- [本地开发环境](#本地开发环境)
+- [内容管理](#内容管理)
+- [配置说明](#配置说明)
 
-![Logo](https://raw.githubusercontent.com/gethinode/hinode/main/static/img/logo.png)
+## 🌟 项目概述
 
-- [Online Demo][demo]
-- [PageSpeed Insights][pagespeed]
-- [Mozilla Observatory][observatory]
+这是 Tt200411 的个人技术网站，使用 Hugo 静态网站生成器和 Hinode 主题构建。网站包含以下技术领域的内容：
 
-Hinode is a clean documentation and blog theme for [Hugo][hugo], an open-source static site generator. Based on the [Bootstrap 5][bootstrap] framework, the rendered site is fast, secure, and responsive. Hinode uses [FlexSearch][flexsearch] to enable full text search across your site. Finally, the theme supports [Node Package Manager][npm] (npm) to automate the build process and to keep track of dependencies.
+- **Oscillator** - 振荡器理论与可视化
+- **Deep Learning** - 深度学习算法与架构
+- **Optimization** - 优化算法与方法
 
-Detailed information about Hinode is available on the [official website][website].
+**访问地址:**
+- 主站: https://tt200411.github.io
+- 自定义域名: https://tttang2004.cn
 
-## Prerequisites
+## 📁 文件结构说明
 
-Hinode is a [Hugo theme that uses modules][hugo_modules] to install and maintain various components. It can be installed using either Hugo or npm. If you would like to take advantage of automation, the npm approach is recommended. Refer to the [Hinode template][repository_template] for installation instructions with npm.
+```
+Tt200411.github.io/
+├── .github/
+│   └── workflows/
+│       └── hugo.yml              # GitHub Actions 自动部署配置
+├── archetypes/                   # Hugo 内容模板
+├── assets/                       # 静态资源（图片、JS、CSS）
+│   ├── img/                     # 图片资源
+│   ├── js/                      # JavaScript 文件
+│   └── scss/                    # SCSS 样式文件
+├── component-library/            # Bookshop 组件库
+├── config/                       # 网站配置目录
+│   └── _default/
+│       ├── hugo.toml            # Hugo 主配置文件
+│       ├── params.toml          # 主题参数配置
+│       ├── languages.toml       # 多语言配置
+│       ├── markup.toml          # 内容渲染配置
+│       └── menus/
+│           └── menus.en.toml    # 导航菜单配置
+├── content/                      # 网站内容目录
+│   ├── _index.md                # 首页内容
+│   ├── oscillator/              # 振荡器专题
+│   │   ├── _index.md
+│   │   └── oscillator-visualization.md
+│   ├── deep-learning/           # 深度学习专题
+│   │   ├── _index.md
+│   │   ├── neural-network-fundamentals.md
+│   │   ├── convolutional-neural-networks.md
+│   │   └── transformer-architecture.md
+│   └── optimization/            # 优化算法专题
+│       ├── _index.md
+│       ├── gradient-descent-methods.md
+│       ├── convex-optimization.md
+│       └── metaheuristic-algorithms.md
+├── data/                         # 数据文件和结构定义
+├── exampleSite/                  # 主题示例站点
+├── i18n/                        # 国际化翻译文件
+├── layouts/                      # HTML 模板文件
+├── static/                       # 静态文件（直接复制到输出）
+│   ├── .nojekyll                # 禁用 Jekyll 处理
+│   ├── fonts/                   # 字体文件
+│   ├── img/                     # 静态图片
+│   └── js/                      # 静态 JavaScript
+├── go.mod                        # Go 模块定义
+├── go.sum                        # Go 模块校验和
+├── hugo_stats.json              # Hugo 构建统计
+├── netlify.toml                 # Netlify 部署配置
+├── package.json                 # Node.js 依赖配置
+├── package-lock.json            # Node.js 依赖锁定文件
+└── theme.toml                   # 主题信息文件
+```
 
-The installation instructions in this readme install Hinode as a regular Hugo theme. Hinode requires the following software to be installed on your local machine.
+### 🔧 核心配置文件
 
-- [Go binary][golang_download]
-- [Hugo][hugo_download] (extended version)
+| 文件 | 作用 |
+|------|------|
+| `config/_default/hugo.toml` | Hugo 主配置：网站标题、URL、构建设置 |
+| `config/_default/params.toml` | 主题参数：样式、功能开关、SEO 设置 |
+| `config/_default/menus/menus.en.toml` | 导航菜单配置 |
+| `.github/workflows/hugo.yml` | GitHub Actions 自动部署流程 |
+| `static/.nojekyll` | 告诉 GitHub Pages 不使用 Jekyll |
 
-[Git][git_download] is recommended, but is not a strict requirement.
+## 🚀 部署流程
 
-## Installation
+### 1. 开发阶段
+```mermaid
+graph LR
+    A[本地开发] --> B[内容创作]
+    B --> C[本地测试]
+    C --> D[Git 提交]
+```
 
-<!-- markdownlint-disable MD033 -->
-<details>
-<summary>Installation notes for Windows</summary>
+### 2. 自动部署阶段
+```mermaid
+graph LR
+    A[Git Push] --> B[GitHub Actions 触发]
+    B --> C[安装 Hugo]
+    C --> D[构建网站]
+    D --> E[部署到 GitHub Pages]
+```
 
-The installation for Windows requires PowerShell v7. Download it from the Microsoft Store as needed. Check your current version with the command `$PSVersionTable`.
-</details>
-<!-- markdownlint-enable MD033 -->
+### 完整部署流程：
 
-Start a new Hinode project in three steps:
+1. **本地开发**: 使用 `hugo server` 在本地预览
+2. **提交代码**: `git add . && git commit -m "message" && git push`
+3. **自动构建**: GitHub Actions 自动触发构建流程
+4. **网站更新**: 构建完成后自动部署到 GitHub Pages
 
-1. **Create a new site**
+## ⚙️ GitHub Actions 编译过程
 
-    ```bash
-    hugo new site my-hinode-site && cd my-hinode-site
-    ```
+我们的 GitHub Actions 配置文件 `.github/workflows/hugo.yml` 实现了完全自动化的部署流程：
 
-2. **Initialize the module system**
+### 触发条件
+- Push 到 `main` 分支
+- 手动触发 (`workflow_dispatch`)
 
-    ```bash
-    hugo mod init example.com/my-hinode-site
-    echo "[[module.imports]]" >> hugo.toml
-    echo "path = 'github.com/gethinode/hinode'" >> hugo.toml
-    ```
+### 构建作业 (Build Job)
+```yaml
+步骤详解:
+1. 安装 Hugo CLI (v0.146.0 extended)
+2. 安装 Dart Sass 编译器
+3. 检出代码仓库 (包含子模块)
+4. 配置 GitHub Pages 设置
+5. 安装 Node.js 依赖 (如存在)
+6. Hugo 构建 (生产模式，启用压缩)
+7. 上传构建产物到 GitHub Pages
+```
 
-3. **Start a development server**
+### 部署作业 (Deploy Job)
+```yaml
+步骤详解:
+1. 等待构建作业完成
+2. 部署到 GitHub Pages 环境
+3. 获取部署后的网站 URL
+```
 
-    ```bash
-    hugo server
-    ```
+### 构建命令解析
+```bash
+hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+```
+- `--gc`: 垃圾收集，清理无用文件
+- `--minify`: 压缩 HTML、CSS、JS
+- `--baseURL`: 动态设置基础 URL
 
-## Configuration
+## 💻 本地开发环境
 
-See the [official documentation][getstarted] on how to configure your site.
+### 系统要求
+- [Hugo Extended](https://gohugo.io/installation/) v0.146.0+
+- [Node.js](https://nodejs.org/) (可选，用于依赖管理)
+- [Git](https://git-scm.com/)
 
-## Contributing
+### macOS 安装 Hugo
+```bash
+# 使用 Homebrew
+brew install hugo
 
-See the [official documentation][contribute] on how to contribute to the open-source development of Hinode.
+# 验证安装
+hugo version
+```
 
-## Credits
+### 启动本地开发服务器
+```bash
+# 克隆仓库
+git clone https://github.com/Tt200411/Tt200411.github.io.git
+cd Tt200411.github.io
 
-Hinode is inspired by the following themes:
+# 安装依赖 (可选)
+npm install
 
-- [Blist][blist] - a clean and fast blog theme for your Hugo site using Tailwind CSS.
-- [Doks][doks] - a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize.
+# 启动开发服务器
+hugo server --buildDrafts --buildFuture
 
-## Donate
+# 或者使用简化命令
+hugo server -D
+```
 
-<!-- markdownlint-disable MD033 -->
-<a href="https://www.buymeacoffee.com/markdumay" target="_blank" rel="noopener noreferrer nofollow"><img src="https://cdn.buymeacoffee.com/buttons/lato-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;"></a>
-<!-- markdownlint-enable MD033 -->
+**访问地址**: http://localhost:1313
 
-## License
+### 开发模式特性
+- 🔥 热重载：文件更改自动刷新浏览器
+- 📝 草稿模式：显示 `draft: true` 的文章
+- 🚀 快速构建：增量编译，秒级响应
 
-The `hinode`, `docs`, and `template` codebase is released under the [MIT license][license]. The documentation of Hinode is licensed under the Creative Commons [(CC BY-NC 4.0)][cc-by-nc-4.0] license. This includes all files within the repository's `/content` and `/exampleSite/content` folders and their children, as well as the "README" in the repository root. This applies to all public repositories maintained by `gethinode` on GitHub, including the `gethinode/hinode`, `gethinode/template`, and `gethinode/docs` repositories, unless specified otherwise.
+## ✏️ 内容管理
 
-<!-- MARKDOWN PUBLIC LINKS -->
-[blist]: https://github.com/apvarun/blist-hugo-theme
-[bootstrap]: https://getbootstrap.com
-[cc-by-nc-4.0]: https://creativecommons.org/licenses/by-nc/4.0/
-[doks]: https://github.com/h-enk/doks
-[flexsearch]: https://github.com/nextapps-de/flexsearch
-[git_download]: https://git-scm.com
-[hugo]: https://gohugo.io
-[hugo_download]: https://gohugo.io/installation
-[hugo_modules]: https://gohugo.io/hugo-modules/
-[netlify]: https://www.netlify.com
-[nodejs]: https://nodejs.org
-[npm]: https://www.npmjs.com
-[observatory]: https://observatory.mozilla.org/analyze/demo.gethinode.com
-[pagespeed]: https://pagespeed.web.dev/report?url=https%3A%2F%2Fdemo.gethinode.com%2F
+### 创建新文章
+```bash
+# 在指定目录创建新文章
+hugo new deep-learning/new-article.md
+hugo new optimization/new-method.md
+hugo new oscillator/new-visualization.md
+```
 
-<!-- MARKDOWN MAINTAINED LINKS -->
-[contribute]: https://gethinode.com/contribute
-[getstarted]: https://gethinode.com/docs
-[golang_download]: https://go.dev/dl/
-[demo]: https://demo.gethinode.com/
-[license]: https://github.com/gethinode/hinode/blob/main/LICENSE
-[repository]: https://github.com/gethinode/hinode.git
-[repository_template]: https://github.com/gethinode/template.git
-[website]: https://gethinode.com/
+### 文章前置参数 (Front Matter)
+```yaml
+---
+title: "文章标题"
+description: "文章描述"
+date: 2025-09-15
+author: "Tt200411"
+tags: ["tag1", "tag2"]
+categories: ["分类1", "分类2"]
+draft: false
+---
+```
+
+### 支持的内容类型
+- **Markdown**: 标准 Markdown 语法
+- **Hugo Shortcodes**: 特殊功能组件
+- **数学公式**: KaTeX 数学渲染
+- **代码高亮**: Syntax highlighting
+- **图片处理**: 自动优化和响应式
+
+## ⚡ 配置说明
+
+### 网站基本信息
+```toml
+# config/_default/hugo.toml
+title = "Tt200411's Personal Website"
+baseURL = "https://tt200411.github.io/"
+languageCode = "en-us"
+```
+
+### 主题参数
+```toml
+# config/_default/params.toml
+[main]
+    description = "个人技术博客描述"
+    
+[navigation]
+    logo = "/img/logo_icon.svg"
+    fixed = true
+    
+[sharing]
+    enabled = true
+```
+
+### 菜单配置
+```toml
+# config/_default/menus/menus.en.toml
+[[main]]
+  name = "Deep Learning"
+  pageRef = "/deep-learning/"
+  weight = 20
+
+[[main]]
+  name = "Neural Networks"
+  pageRef = "/deep-learning/neural-network-fundamentals/"
+  parent = "Deep Learning"
+  weight = 1
+```
+
+## 🌐 网站特性
+
+- ✅ **响应式设计**: 移动端友好
+- ✅ **SEO 优化**: Meta 标签、结构化数据
+- ✅ **快速搜索**: FlexSearch 全文搜索
+- ✅ **语法高亮**: 代码块美化显示
+- ✅ **数学支持**: KaTeX 数学公式渲染
+- ✅ **图片优化**: 自动压缩和格式转换
+- ✅ **深色模式**: 自动/手动切换
+- ✅ **社交分享**: 内置分享按钮
+- ✅ **评论系统**: 支持多种评论插件
+
+## 📄 许可证
+
+本项目基于 MIT 许可证开源。Hugo Hinode 主题遵循其原始许可证条款。
+
+## 🔗 相关链接
+
+- [网站首页](https://tt200411.github.io)
+- [Hugo 官方文档](https://gohugo.io/documentation/)
+- [Hinode 主题文档](https://gethinode.com)
+- [Bootstrap 5 文档](https://getbootstrap.com)

@@ -4,14 +4,24 @@
   weight = 10
 
 [[main]]
+  name = "Blog"
+  pageRef = "/blog/"
+  weight = 15
+
+[[main]]
+  name = "Projects"
+  pageRef = "/projects/"
+  weight = 16
+
+[[main]]
   name = "Oscillator"
   pageRef = "/oscillator/"
-  weight = 15
+  weight = 20
 
 [[main]]
   name = "Deep Learning"
   pageRef = "/deep-learning/"
-  weight = 20
+  weight = 30
 
 [[main]]
   name = "Neural Network Fundamentals"
@@ -34,7 +44,7 @@
 [[main]]
   name = "Optimization"
   pageRef = "/optimization/"
-  weight = 30
+  weight = 40
 
 [[main]]
   name = "Gradient Descent Methods"
@@ -57,7 +67,7 @@
 [[main]]
   name = "Tags"
   pageRef = "/tags"
-  weight = 40
+  weight = 50
 
 [[social]]
   name = "LinkedIn"
